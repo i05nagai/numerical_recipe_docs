@@ -1,0 +1,650 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Algorithms &mdash; Numerical Recipe 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/js/config.mathjax.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linear Algebra" href="linear_algebra.html" />
+    <link rel="prev" title="Recipe’s documentation." href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Numerical Recipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linear-algebra">Linear Algebra</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linear_algebra.html">Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test_util.html">Test Util</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Numerical Recipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Algorithms</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/algorithms.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="algorithms">
+<h1>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="linear-algebra">
+<h2>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>[ ] Gauss-Jordan Elimination</li>
+<li>[ ] Gaussian Elimination with Backsubstitution</li>
+<li>[ ] LU Decomposition and Its Applications</li>
+<li>[ ] Tridiagonal and Band-Diagonal Systems of Equations</li>
+<li>[x] Band-Diagonal Gaussian Elimination Outer Product</li>
+<li>[x] Upper triangular systems of linear equations</li>
+<li>[x] Lower triangular systems of linear equations</li>
+<li>[ ] Iterative Improvement of a Solution to Linear Equations</li>
+<li><dl class="first docutils">
+<dt>[ ] Singular Value Decomposition</dt>
+<dd><ul class="first last">
+<li>[ ] Golub-Kahan SVD</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>[ ] Sparse Linear Systems</li>
+<li>[ ] Vandermonde Matrices and Toeplitz Matrices</li>
+<li>[ ] Cholesky Decomposition</li>
+<li><dl class="first docutils">
+<dt>[ ] QR Decomposition</dt>
+<dd><ul class="first last">
+<li>[x] Householder QR</li>
+<li>[ ] Householder QR with pivotting</li>
+<li>[ ] Givens QR</li>
+<li>[ ] Fast Givens QR</li>
+<li>[ ] Gram-Schmidt</li>
+<li>[ ] Modified Gram-Schmidt</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>[x] Householder Transformation</dt>
+<dd><ul class="first last">
+<li>[x] Householder Bidiagonalization</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>[x] Givens Rotation</li>
+<li><dl class="first docutils">
+<dt>Interpolation and Extrapolation</dt>
+<dd><ul class="first last">
+<li>[ ] Polynomial Interpolation and Extrapolation</li>
+<li>[ ] Cubic Spline Interpolation</li>
+<li>[ ] Rational Function Interpolation and Extrapolation</li>
+<li>[ ] Interpolation on a Grid in Multidimensions</li>
+<li>[ ] Interpolation on Scattered Data in Multidimensions</li>
+<li>[ ] Laplace Interpolation</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Integration</dt>
+<dd><ul class="first last">
+<li>[ ] Classical Formulas for Equally Spaced Abscissas</li>
+<li><dl class="first docutils">
+<dt>Elementary Algorithms</dt>
+<dd><ul class="first last">
+<li>[ ] trapezoidal</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>[ ] Romberg Integration</li>
+<li>[ ] Support Improper Integrals</li>
+<li>[ ] Quadrature by Variable Transformation</li>
+<li>[ ] Gaussian Quadratures and Orthogonal Polynomials</li>
+<li>[ ] Adaptive Quadrature</li>
+<li>[ ] Support Multidimensional Integrals</li>
+<li>[ ] Simple Monte Carlo Integration</li>
+<li>[ ] Quasi-Random Sequences</li>
+<li>[ ] Adaptive and Recursive MonteCarlo Methods</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Special functions</dt>
+<dd><ul class="first last">
+<li>[ ] Polynomials and Rational Functions</li>
+<li>[ ] Evaluation of Continued Fractions</li>
+<li>[ ] Series and Their Convergence</li>
+<li>[ ] Recurrence Relations and Clenshaw’s Recurrence Formula</li>
+<li>[ ] Complex Arithmetic</li>
+<li>[ ] Quadratic and Cubic Equations</li>
+<li>[ ] Numerical Derivatives</li>
+<li>[ ] Chebyshev Approximation</li>
+<li>[ ] Derivatives or Integrals of a Chebyshev-Approximated Function</li>
+<li>[ ] Polynomial Approximation from Chebyshev Coefficients</li>
+<li>[ ] Economization of PowerSeries</li>
+<li>[ ] Pade ́Approximants</li>
+<li>[ ] Rational Chebyshev Approximation</li>
+<li>[ ] Evaluation of Functions by Path Integration</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Special functions</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Gamma</dt>
+<dd><ul class="first last">
+<li>[ ] Gamma Function</li>
+<li>[ ] Incomplete Gamma Function</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Beta</dt>
+<dd><ul class="first last">
+<li>[ ] Beta Function</li>
+<li>[ ] Incomplete Beta Function</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>[ ] Factorials</li>
+<li>[ ] Binomial Coefficients</li>
+<li>[ ] Error Function</li>
+<li>[ ] Exponential Integrals</li>
+<li><dl class="first docutils">
+<dt>Bessel Functions</dt>
+<dd><ul class="first last">
+<li>Bessel Functions of Integer Order</li>
+<li>Bessel Functions of Fractional Order</li>
+<li>Spherical Bessel Functions</li>
+<li>Airy Functions</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Spherical Harmonics</li>
+<li>Fresnel Integrals</li>
+<li>Cosine and Sine Integrals</li>
+<li>Dawson’s Integral</li>
+<li>Generalized Fermi-Dirac Integrals</li>
+<li>Inverse of the Function x log(x)</li>
+<li>Elliptic Integrals</li>
+<li>Jacobian Elliptic Functions</li>
+<li>Hypergeometric Functions</li>
+<li>Statistical Functions</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Random Numbers</dt>
+<dd><ul class="first last">
+<li>[ ] Uniform Deviates</li>
+<li><dl class="first docutils">
+<dt>Normal</dt>
+<dd><ul class="first last">
+<li>Multivariate Normal Deviates</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Completely Hashinga Large Array</li>
+<li>Deviates from Other Distributions</li>
+<li>Linear Feedback Shift Registers</li>
+<li>Hash Tables</li>
+<li>Hash Memories</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Sorting and Selection</dt>
+<dd><ul class="first last">
+<li>Straight Insertion</li>
+<li>Shell’s Method</li>
+<li>Quicksort</li>
+<li>Heapsort</li>
+<li>Indexing</li>
+<li>Ranking</li>
+<li>Selecting the Mth Largest</li>
+<li>Determination of Equivalence Classes</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Root Finding and Nonlinear Sets of Equations</dt>
+<dd><ul class="first last">
+<li>Bracketing</li>
+<li>Bisection</li>
+<li>Secant Method</li>
+<li>False Position Method</li>
+<li>Ridders’ Method</li>
+<li>Van Wijngaarden-Dekker-Brent Method</li>
+<li>Newton-Raphson Method Using Derivative</li>
+<li>Roots of Polynomials</li>
+<li>Newton-Raphson Method for Nonlinear Systems of Equations</li>
+<li>Globally Convergent Methods for Nonlinear Systems of Equations</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Minimization or Maximization of Functions</dt>
+<dd><ul class="first last">
+<li>Initially Bracketing a Minimum</li>
+<li>Golden Section Searching One Dimension</li>
+<li>Parabolic Interpolation</li>
+<li>Brent’s Method in One Dimension</li>
+<li>One-Dimensional Search with First Derivatives</li>
+<li>Downhill Simplex Method in Multidimensions</li>
+<li>Line Methods in Multidimensions</li>
+<li>Direction Set (Powell’s) Methods in Multidimensions</li>
+<li>Conjugate Gradient Methods in Multidimensions</li>
+<li>Quasi-Newton or Variable Metric Methods in Multidimensions</li>
+<li><dl class="first docutils">
+<dt>LinearProgramming</dt>
+<dd><ul class="first last">
+<li>The Simplex Method</li>
+<li>Interior-Point Methods</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Simulated Annealing Methods</li>
+<li>Dynamic Programming</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Eigensystems</dt>
+<dd><ul class="first last">
+<li>Jacobi Transformations of a Symmetric Matrix</li>
+<li>Real Symmetric Matrices</li>
+<li>Reduction of a Symmetric Matrix to Tridiagonal Form: Givens and Householder Reductions</li>
+<li>Eigenvalues and Eigenvectors of a Tridiagonal Matrix</li>
+<li>HermitianMatrices</li>
+<li>Real Nonsymmetric Matrices</li>
+<li>The QR Algorithm for Real Hessenberg Matrices</li>
+<li>Improving Eigenvalues and/or Finding Eigenvectors by Inverse Iteration</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Fast Fourier Transform</dt>
+<dd><ul class="first last">
+<li>Fourier Transform of Discretely Sampled Data</li>
+<li>Fast Fourier Transform(FFT)</li>
+<li>FFT of Real Functions</li>
+<li>Fast Sine Transform</li>
+<li>Fast Cosine Transforms</li>
+<li>FFT in Two or More Dimensions</li>
+<li>Fourier Transforms of Real Data in Two and Three Dimensions</li>
+<li>External Storageor Memory-Local FFTs</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Fourier and Spectral Applications</dt>
+<dd><ul class="first last">
+<li>Convolution and Deconvolution Using the FFT</li>
+<li>Correlation and Autocorrelation Using the FFT</li>
+<li>Optimal (Wiener) Filtering with the FFT</li>
+<li>Power Spectrum Estimation Using the FFT</li>
+<li>Digital Filtering in the Time Domain</li>
+<li>Linear Prediction and Linear Predictive Coding</li>
+<li>Power Spectrum Estimation by the Maximum Entropy (All-Poles) Method</li>
+<li>Spectral Analysis of Unevenly Sampled Data</li>
+<li>Computing Fourier Integrals Using the FFT</li>
+<li>WaveletTransforms</li>
+<li>Numerical Use of the Sampling Theorem</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Statistical Description of Data</dt>
+<dd><ul class="first last">
+<li>Moments of a Distribution: Mean, Variance, Skewness, and So Forth</li>
+<li>Do Two Distributions Have the Same Means or Variances?</li>
+<li>AreTwoDistributionsDifferent?</li>
+<li>Contingency Table Analysis of Two Distributions</li>
+<li>Linear Correlation</li>
+<li>Nonparametric or Rank Correlation</li>
+<li>Information-Theoretic Properties of Distributions</li>
+<li>Do Two-Dimensional Distributions Differ?</li>
+<li>Savitzky-Golay Smoothing Filters</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Modeling of Data</dt>
+<dd><ul class="first last">
+<li>Least Squares as a Maximum Likelihood Estimator</li>
+<li>Fitting Data to a Straight Line</li>
+<li>Straight-Line Data with Errors in Both Coordinates</li>
+<li>General Linear Least Squares</li>
+<li>Nonlinear Models</li>
+<li>Confidence Limits on Estimated Model Parameters</li>
+<li>Robust Estimation</li>
+<li>Markov Chain Monte Carlo</li>
+<li>Gaussian Process Regression</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Classification and Inference</dt>
+<dd><ul class="first last">
+<li>Gaussian Mixture Models</li>
+<li>k-Means Clustering</li>
+<li>Viterbi Decoding</li>
+<li>Markov Models and Hidden Markov Modeling</li>
+<li>Hierarchical Clustering by Phylogenetic Trees</li>
+<li>Support Vector Machines</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Integration of Ordinary Differential Equations</dt>
+<dd><ul class="first last">
+<li>Runge-Kutta Method</li>
+<li>Adaptive Stepsize Control for Runge-Kutta</li>
+<li>Richardson Extrapolation</li>
+<li>the Bulirsch-Stoer Method</li>
+<li>Second-Order Conservative Equations</li>
+<li>Stiff Sets of Equations</li>
+<li>Multistep, Multivalue, and Predictor-Corrector Methods</li>
+<li>Stochastic Simulation of Chemical Reaction Networks</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Two-Point Boundary Value Problems</dt>
+<dd><ul class="first last">
+<li>The Shooting Method</li>
+<li>Shooting to a Fitting Point</li>
+<li>Relaxation Methods</li>
+<li><dl class="first docutils">
+<dt>Example</dt>
+<dd><ul class="first last">
+<li>Spheroidal Harmonics</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Automated Allocation of Mesh Points</li>
+<li>Handling Internal Boundary Conditions or Singular Points</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Integral Equations and Inverse Theory</dt>
+<dd><ul class="first last">
+<li>Fredholm Equations of the Second Kind</li>
+<li>Volterra Equations</li>
+<li>Integral Equations with Singular Kernels</li>
+<li>Inverse Problems and the Use of A Priori Information</li>
+<li>Linear Regularization Methods</li>
+<li>Backus-Gilbert Method</li>
+<li>Maximum Entropy Image Restoration</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Partial Differential Equations</dt>
+<dd><ul class="first last">
+<li>Flux-Conservative Initial Value Problems</li>
+<li>Diffusive Initial Value Problems</li>
+<li>Initial Value Problems in Multidimensions</li>
+<li>Fourier and Cyclic Reduction Methods for Boundary Value Problems</li>
+<li>Relaxation Methods for Boundary Value Problems</li>
+<li>Multigrid Methods for Boundary Value Problems</li>
+<li>Spectral Methods</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Stochastic Differential Equations</dt>
+<dd><ul class="first last">
+<li>Euler Maruyama method</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Computational Geometry</dt>
+<dd><ul class="first last">
+<li>Points</li>
+<li>Boxes</li>
+<li>KD Trees</li>
+<li>Nearest-Neighbor Finding</li>
+<li>Triangles in Two and Three Dimensions</li>
+<li>Lines</li>
+<li>LineSegments</li>
+<li>Polygons</li>
+<li>Spheres</li>
+<li>Rotations</li>
+<li>Triangulation and Delaunay Triangulation</li>
+<li>Applications of Delaunay Triangulation</li>
+<li><dl class="first docutils">
+<dt>Quadtrees and Octrees</dt>
+<dd><ul class="first last">
+<li>Storing Geometrical Objects</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Less-Numerical Algorithms</li>
+<li>Plotting Simple Graphs</li>
+<li>Diagnosing Machine Parameters</li>
+<li>Gray Codes</li>
+<li>Cyclic Redundancy and Other Checksums</li>
+<li>Huffman Coding and Compression of Data</li>
+<li>Arithmetic Coding</li>
+<li>Arithmetic at Arbitrary Precision</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="linear_algebra.html" class="btn btn-neutral float-right" title="Linear Algebra" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Recipe’s documentation." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, i05nagai
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

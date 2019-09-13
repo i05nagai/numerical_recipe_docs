@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Test Util &mdash; Numerical Recipe 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/js/config.mathjax.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Linear Algebra" href="linear_algebra.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Numerical Recipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_algebra.html">Linear Algebra</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Test Util</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#test-data">Test Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gtest-assersions">Gtest assersions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Numerical Recipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Test Util</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/test_util.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="test-util">
+<h1>Test Util<a class="headerlink" href="#test-util" title="Permalink to this headline">¶</a></h1>
+<p>Utilities for testing.
+Files in this module can only be included by files for testing such as <cite>*_test.cc</cite> and other utility files for testing .</p>
+<div class="section" id="test-data">
+<h2>Test Data<a class="headerlink" href="#test-data" title="Permalink to this headline">¶</a></h2>
+<p>Classes and functions to generate data for testing.</p>
+<dl class="class">
+<dt id="_CPPv3N6recipe9test_util12RandomNumberE">
+<span id="_CPPv2N6recipe9test_util12RandomNumberE"></span><span id="recipe::test_util::RandomNumber"></span><span class="target" id="classrecipe_1_1test__util_1_1RandomNumber"></span><em class="property">class </em><code class="descname">RandomNumber</code><a class="headerlink" href="#_CPPv3N6recipe9test_util12RandomNumberE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create random numbers. </p>
+<p>Example:</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RandomNumber</span> <span class="n">generator</span><span class="p">;</span>
+<span class="n">const</span> <span class="n">double</span> <span class="n">val1</span> <span class="o">=</span> <span class="n">generator</span><span class="p">();</span>
+</pre></div>
+</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv3N6recipe9test_util12RandomNumber12RandomNumberEKNSt6size_tE">
+<span id="_CPPv2N6recipe9test_util12RandomNumber12RandomNumberEKNSt6size_tE"></span><span id="recipe::test_util::RandomNumber::RandomNumber__std::sC"></span><span class="target" id="classrecipe_1_1test__util_1_1RandomNumber_1a04fc6d939b7d7bdc94381bd633062718"></span><code class="descname">RandomNumber</code><span class="sig-paren">(</span><em class="property">const</em> std::size_t <em>seed</em> = 3252352<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe9test_util12RandomNumber12RandomNumberEKNSt6size_tE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe9test_util12RandomNumberclEv">
+<span id="_CPPv2N6recipe9test_util12RandomNumberclEv"></span><span id="recipe::test_util::RandomNumber::call-operator"></span><span class="target" id="classrecipe_1_1test__util_1_1RandomNumber_1a6b1b7bbb98f5069dfc0b82714a28e4d4"></span>double <code class="descname">operator()</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe9test_util12RandomNumberclEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>random value in [0, 1). </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>random value in [0, 1). </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe9test_util12RandomNumberclEKdKd">
+<span id="_CPPv2N6recipe9test_util12RandomNumberclEKdKd"></span><span id="recipe::test_util::RandomNumber::call-operator__doubleC.doubleC"></span><span class="target" id="classrecipe_1_1test__util_1_1RandomNumber_1aa6902810c47121c39f608ced2ba00c07"></span>double <code class="descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> double <em>min</em>, <em class="property">const</em> double <em>max</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe9test_util12RandomNumberclEKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create random number between [min, max) </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>random number within [min, max) </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">min</span></code>: the minimal value of random value. </li>
+<li><code class="docutils literal notranslate"><span class="pre">max</span></code>: the maximal value of random value.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Private Members</p>
+<dl class="member">
+<dt id="_CPPv3N6recipe9test_util12RandomNumber7engine_E">
+<span id="_CPPv2N6recipe9test_util12RandomNumber7engine_E"></span><span id="recipe::test_util::RandomNumber::engine___std::mt19937"></span><span class="target" id="classrecipe_1_1test__util_1_1RandomNumber_1a898d57e97b00d98153dbabd2b2080bf2"></span>std::mt19937 <code class="descname">engine_</code><a class="headerlink" href="#_CPPv3N6recipe9test_util12RandomNumber7engine_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv3N6recipe9test_util12RandomNumber13distribution_E">
+<span id="_CPPv2N6recipe9test_util12RandomNumber13distribution_E"></span><span id="recipe::test_util::RandomNumber::distribution___std::uniform_real_distribution:double:"></span><span class="target" id="classrecipe_1_1test__util_1_1RandomNumber_1a7ae98ee5f3bb26a83c35165fd35930bc"></span>std::uniform_real_distribution&lt;double&gt; <code class="descname">distribution_</code><a class="headerlink" href="#_CPPv3N6recipe9test_util12RandomNumber13distribution_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="gtest-assersions">
+<h2>Gtest assersions<a class="headerlink" href="#gtest-assersions" title="Permalink to this headline">¶</a></h2>
+<dl class="macro">
+<dt id="c.EXPECT_VECTOR_ELEMENT_EQ">
+<span class="target" id="test__util_2gtest__assertion_8h_1a619cc058369313289f424bcf64ed8953"></span><code class="descname">EXPECT_VECTOR_ELEMENT_EQ</code><span class="sig-paren">(</span>expect, actual<span class="sig-paren">)</span><a class="headerlink" href="#c.EXPECT_VECTOR_ELEMENT_EQ" title="Permalink to this definition">¶</a></dt>
+<dd><p>an assertion compares two vectors. Two vectors must have the same values. </p>
+<p><em>Example </em></p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">double</span><span class="o">&gt;</span> <span class="n">expect</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">double</span><span class="o">&gt;</span> <span class="n">actual</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">EXPECT_ARRAY_ELEMENT_EQ</span><span class="p">(</span><span class="n">expect</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.EXPECT_ARRAY_ELEMENT_EQ">
+<span class="target" id="test__util_2gtest__assertion_8h_1acf75a9e2b16429db2aa1a15a1b11e2e6"></span><code class="descname">EXPECT_ARRAY_ELEMENT_EQ</code><span class="sig-paren">(</span>expect, actual, size<span class="sig-paren">)</span><a class="headerlink" href="#c.EXPECT_ARRAY_ELEMENT_EQ" title="Permalink to this definition">¶</a></dt>
+<dd><p>an assertion compares two arrays. Two arrays must have the same values of the elements. </p>
+<p><em>Example </em></p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="p">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">double</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">expect</span><span class="p">(</span><span class="n">new</span> <span class="n">double</span><span class="p">[</span><span class="mi">5</span><span class="p">]);</span>
+<span class="n">std</span><span class="p">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">double</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">actual</span><span class="p">(</span><span class="n">new</span> <span class="n">double</span><span class="p">[</span><span class="mi">5</span><span class="p">]);</span>
+<span class="n">EXPECT_ARRAY_ELEMENT_EQ</span><span class="p">(</span><span class="n">expect</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+
+<span class="n">double</span> <span class="n">expect</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="n">double</span> <span class="n">actual</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="n">EXPECT_ARRAY_ELEMENT_EQ</span><span class="p">(</span><span class="n">expect</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">double</span> <span class="n">expect</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="n">std</span><span class="p">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">double</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">actual</span><span class="p">(</span><span class="n">new</span> <span class="n">double</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+<span class="n">EXPECT_ARRAY_ELEMENT_EQ</span><span class="p">(</span><span class="n">expect</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="n">std</span><span class="p">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">double</span><span class="p">[]</span><span class="o">&gt;</span> <span class="n">expect</span><span class="p">(</span><span class="n">new</span> <span class="n">double</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+<span class="n">double</span> <span class="n">actual</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="n">EXPECT_ARRAY_ELEMENT_EQ</span><span class="p">(</span><span class="n">expect</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.EXPECT_ARRAY_ELEMENT_NEAR">
+<span class="target" id="test__util_2gtest__assertion_8h_1a6e93bfda79e5717ca9f0e3f364d2cfb8"></span><code class="descname">EXPECT_ARRAY_ELEMENT_NEAR</code><span class="sig-paren">(</span>expect, actual, size, abs_error<span class="sig-paren">)</span><a class="headerlink" href="#c.EXPECT_ARRAY_ELEMENT_NEAR" title="Permalink to this definition">¶</a></dt>
+<dd><p>an assertion compares two arrays. Two arrays must have the same values of the elements. </p>
+<p><em>Example </em></p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">double</span> <span class="n">expect</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="n">double</span> <span class="n">actual</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="n">EXPECT_ARRAY_ELEMENT_NEAR</span><span class="p">(</span><span class="n">expect</span><span class="p">,</span> <span class="n">actual</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">);</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+<dl class="macro">
+<dt id="c.EXPECT_ASSERT_FAIL">
+<span class="target" id="test__util_2gtest__assertion_8h_1afd6e92a418057b882d4d091a4bfd2439"></span><code class="descname">EXPECT_ASSERT_FAIL</code><span class="sig-paren">(</span>statement<span class="sig-paren">)</span><a class="headerlink" href="#c.EXPECT_ASSERT_FAIL" title="Permalink to this definition">¶</a></dt>
+<dd><p>an assertion checkes whether the statement passes. The message of <code class="docutils literal notranslate"><span class="pre">assert</span></code> function varies between compilers. </p>
+<p><em>Example </em></p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EXPECT_ASSERT_FAIL</span><span class="p">(</span><span class="k">assert</span><span class="p">(</span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">));</span> <span class="o">//</span> <span class="n">Pass</span>
+<span class="n">EXPECT_ASSERT_FAIL</span><span class="p">(</span><span class="k">assert</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">));</span> <span class="o">//</span> <span class="n">Fail</span>
+</pre></div>
+</div>
+ </p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="linear_algebra.html" class="btn btn-neutral float-left" title="Linear Algebra" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, i05nagai
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,602 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Linear Algebra &mdash; Numerical Recipe 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/js/config.mathjax.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Test Util" href="test_util.html" />
+    <link rel="prev" title="Algorithms" href="algorithms.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Numerical Recipe
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linear Algebra</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#triangular-matrix">Triangular Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#band-diagonal-matrix">Band-Diagonal Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#matrix">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#householder-transformation">Householder Transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qr-decompositions">QR decompositions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gievns-rotation">Gievns Rotation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test_util.html">Test Util</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Numerical Recipe</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Linear Algebra</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/linear_algebra.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="linear-algebra">
+<h1>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="triangular-matrix">
+<h2>Triangular Matrix<a class="headerlink" href="#triangular-matrix" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra34SolveLinearEquationLowerTriangularEPKdKiKiPdKi">
+<span id="_CPPv2N6recipe14linear_algebra34SolveLinearEquationLowerTriangularEPKdKiKiPdKi"></span><span id="recipe::linear_algebra::SolveLinearEquationLowerTriangular__doubleCP.iC.iC.doubleP.iC"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1ac05c4fcb175310e7400c8bd53049353d"></span>void <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">SolveLinearEquationLowerTriangular</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>matrix</em>, <em class="property">const</em> int <em>row_size</em>, <em class="property">const</em> int <em>col_size</em>, double *<em>vector</em>, <em class="property">const</em> int <em>vector_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra34SolveLinearEquationLowerTriangularEPKdKiKiPdKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Solve the equation $Lx = b$ where $L$ is a lower triangular matrix. The solution will be written to the arugment <code class="docutils literal notranslate"><span class="pre">vector</span></code>. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">matrix</span></code>: L. The memory layout of the matrix should be row major layout. </li>
+<li><code class="docutils literal notranslate"><span class="pre">row_size</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">col_size</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">vector</span></code>: b. The values are overwritten by the solution. </li>
+<li><code class="docutils literal notranslate"><span class="pre">vector_size</span></code>: </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra34SolveLinearEquationUpperTriangularEPKdKiKiPdKi">
+<span id="_CPPv2N6recipe14linear_algebra34SolveLinearEquationUpperTriangularEPKdKiKiPdKi"></span><span id="recipe::linear_algebra::SolveLinearEquationUpperTriangular__doubleCP.iC.iC.doubleP.iC"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1a3a50a809ea41cf4e144b2f3cf228a23b"></span>void <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">SolveLinearEquationUpperTriangular</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>matrix</em>, <em class="property">const</em> int <em>row_size</em>, <em class="property">const</em> int <em>col_size</em>, double *<em>vector</em>, <em class="property">const</em> int <em>vector_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra34SolveLinearEquationUpperTriangularEPKdKiKiPdKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Solve the equation $Ux = b$ where $U$ is a upper triangular matrix. The solution will be written to the arugment <code class="docutils literal notranslate"><span class="pre">vector</span></code>. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">matrix</span></code>: U. The memory layout of the matrix should be row major layout. </li>
+<li><code class="docutils literal notranslate"><span class="pre">row_size</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">col_size</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">vector</span></code>: b. The values are overwritten by the solution. </li>
+<li><code class="docutils literal notranslate"><span class="pre">vector_size</span></code>: </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="band-diagonal-matrix">
+<h2>Band-Diagonal Matrix<a class="headerlink" href="#band-diagonal-matrix" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra43GaussianEliminationOuterProductBandDiagonalEPdKiKi">
+<span id="_CPPv2N6recipe14linear_algebra43GaussianEliminationOuterProductBandDiagonalEPdKiKi"></span><span id="recipe::linear_algebra::GaussianEliminationOuterProductBandDiagonal__doubleP.iC.iC"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1ac6b851859b23af9c6e07ed93bef4a68f"></span>void <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">GaussianEliminationOuterProductBandDiagonal</code><span class="sig-paren">(</span>double *<em>mat</em>, <em class="property">const</em> int <em>mat_size</em>, <em class="property">const</em> int <em>band_size</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>LU decomposition for a band diagonal matrix whose upper band and lower band has the same size. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="matrix">
+<h2>Matrix<a class="headerlink" href="#matrix" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="_CPPv3N6recipe14linear_algebra6MatrixE">
+<span id="_CPPv2N6recipe14linear_algebra6MatrixE"></span><span id="recipe::linear_algebra::Matrix"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix"></span><em class="property">class </em><code class="descname">Matrix</code><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra6MatrixE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classrecipe_1_1linear__algebra_1_1Matrix"><span class="std std-ref">Matrix</span></a> class for row majored array. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra6Matrix6MatrixEv">
+<span id="_CPPv2N6recipe14linear_algebra6Matrix6MatrixEv"></span><span id="recipe::linear_algebra::Matrix::Matrix"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1a6c2f0179068ea11727a201efbff837c2"></span><code class="descname">Matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra6Matrix6MatrixEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra6Matrix6MatrixEKiKi">
+<span id="_CPPv2N6recipe14linear_algebra6Matrix6MatrixEKiKi"></span><span id="recipe::linear_algebra::Matrix::Matrix__iC.iC"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1ab2c2b70b410046528da3131554f5dbbd"></span><code class="descname">Matrix</code><span class="sig-paren">(</span><em class="property">const</em> int <em>num_row</em>, <em class="property">const</em> int <em>num_col</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra6Matrix6MatrixEKiKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create matrix without initialization. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">num_row</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">num_col</span></code>: </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra6Matrix6MatrixEKiKiNSt10unique_ptrIA_dEE">
+<span id="_CPPv2N6recipe14linear_algebra6Matrix6MatrixEKiKiNSt10unique_ptrIA_dEE"></span><span id="recipe::linear_algebra::Matrix::Matrix__iC.iC.std::unique_ptr:doubleA:"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1ab3c7508e6d8fcfb70952ea1f44c589c7"></span><code class="descname">Matrix</code><span class="sig-paren">(</span><em class="property">const</em> int <em>num_row</em>, <em class="property">const</em> int <em>num_col</em>, std::unique_ptr&lt;double[]&gt; <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra6Matrix6MatrixEKiKiNSt10unique_ptrIA_dEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">num_row</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">num_col</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">data</span></code>: Row majored matirx data. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra6Matrix6MatrixERK6Matrix">
+<span id="_CPPv2N6recipe14linear_algebra6Matrix6MatrixERK6Matrix"></span><span id="recipe::linear_algebra::Matrix::Matrix__MatrixCR"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1a8a5a9db5f59556753854c477ec5cbb00"></span><code class="descname">Matrix</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv3N6recipe14linear_algebra6Matrix6MatrixEv" title="recipe::linear_algebra::Matrix::Matrix">Matrix</a> &amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra6Matrix6MatrixERK6Matrix" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK6recipe14linear_algebra6Matrix5SliceEKiKiKiKi">
+<span id="_CPPv2NK6recipe14linear_algebra6Matrix5SliceEKiKiKiKi"></span><span id="recipe::linear_algebra::Matrix::Slice__iC.iC.iC.iCC"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1af3fbc6023ac4b25951240121c7c962cd"></span><a class="reference internal" href="#_CPPv3N6recipe14linear_algebra6MatrixE" title="recipe::linear_algebra::Matrix">Matrix</a> <code class="descname">Slice</code><span class="sig-paren">(</span><em class="property">const</em> int <em>row_from</em>, <em class="property">const</em> int <em>row_to</em>, <em class="property">const</em> int <em>col_from</em>, <em class="property">const</em> int <em>col_to</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK6recipe14linear_algebra6Matrix5SliceEKiKiKiKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK6recipe14linear_algebra6MatrixclEKiKi">
+<span id="_CPPv2NK6recipe14linear_algebra6MatrixclEKiKi"></span><span id="recipe::linear_algebra::Matrix::call-operator__iC.iCC"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1a7a037d864f790f289d6bb2c44a43b6c3"></span>double <code class="descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> int <em>row</em>, <em class="property">const</em> int <em>col</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK6recipe14linear_algebra6MatrixclEKiKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra6MatrixclEKiKi">
+<span id="_CPPv2N6recipe14linear_algebra6MatrixclEKiKi"></span><span id="recipe::linear_algebra::Matrix::call-operator__iC.iC"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1a5bf68f9074900d9e1a9b7b596db7c77a"></span>double &amp;<code class="descname">operator()</code><span class="sig-paren">(</span><em class="property">const</em> int <em>row</em>, <em class="property">const</em> int <em>col</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra6MatrixclEKiKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra6MatrixaSERK6Matrix">
+<span id="_CPPv2N6recipe14linear_algebra6MatrixaSERK6Matrix"></span><span id="recipe::linear_algebra::Matrix::assign-operator__MatrixCR"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1ab78317bb90d968ff595ee8c23a08132c"></span><a class="reference internal" href="#_CPPv3N6recipe14linear_algebra6MatrixE" title="recipe::linear_algebra::Matrix">Matrix</a> &amp;<code class="descname">operator=</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv3N6recipe14linear_algebra6MatrixE" title="recipe::linear_algebra::Matrix">Matrix</a> &amp;<em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra6MatrixaSERK6Matrix" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK6recipe14linear_algebra6MatrixeqERK6Matrix">
+<span id="_CPPv2NK6recipe14linear_algebra6MatrixeqERK6Matrix"></span><span id="recipe::linear_algebra::Matrix::eq-operator__MatrixCRC"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1a6ac0ca84d92afc64ad205535935ba4af"></span>bool <code class="descname">operator==</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv3N6recipe14linear_algebra6MatrixE" title="recipe::linear_algebra::Matrix">Matrix</a> &amp;<em>other</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK6recipe14linear_algebra6MatrixeqERK6Matrix" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra6Matrix3GetEv">
+<span id="_CPPv2N6recipe14linear_algebra6Matrix3GetEv"></span><span id="recipe::linear_algebra::Matrix::Get"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1a3548cd520878c815056d0f3628a7709f"></span>double *<code class="descname">Get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra6Matrix3GetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK6recipe14linear_algebra6Matrix3GetEv">
+<span id="_CPPv2NK6recipe14linear_algebra6Matrix3GetEv"></span><span id="recipe::linear_algebra::Matrix::GetC"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1a00d44a636a82ecce9748dde0b1a72dc1"></span><em class="property">const</em> double *<code class="descname">Get</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK6recipe14linear_algebra6Matrix3GetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK6recipe14linear_algebra6Matrix6NumRowEv">
+<span id="_CPPv2NK6recipe14linear_algebra6Matrix6NumRowEv"></span><span id="recipe::linear_algebra::Matrix::NumRowC"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1a7afbe3867bb7acf5de3ba0c7291c4f5e"></span>int <code class="descname">NumRow</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK6recipe14linear_algebra6Matrix6NumRowEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3NK6recipe14linear_algebra6Matrix6NumColEv">
+<span id="_CPPv2NK6recipe14linear_algebra6Matrix6NumColEv"></span><span id="recipe::linear_algebra::Matrix::NumColC"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1afcd656b4f35ebed238ae72206bfc304d"></span>int <code class="descname">NumCol</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv3NK6recipe14linear_algebra6Matrix6NumColEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Private Members</p>
+<dl class="member">
+<dt id="_CPPv3N6recipe14linear_algebra6Matrix8num_row_E">
+<span id="_CPPv2N6recipe14linear_algebra6Matrix8num_row_E"></span><span id="recipe::linear_algebra::Matrix::num_row___i"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1a435032503bc895ecc91e812137b1fec4"></span>int <code class="descname">num_row_</code><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra6Matrix8num_row_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv3N6recipe14linear_algebra6Matrix8num_col_E">
+<span id="_CPPv2N6recipe14linear_algebra6Matrix8num_col_E"></span><span id="recipe::linear_algebra::Matrix::num_col___i"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1afb8cfadbbb1c4767ed6f8240d9cc258a"></span>int <code class="descname">num_col_</code><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra6Matrix8num_col_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="member">
+<dt id="_CPPv3N6recipe14linear_algebra6Matrix5data_E">
+<span id="_CPPv2N6recipe14linear_algebra6Matrix5data_E"></span><span id="recipe::linear_algebra::Matrix::data___std::unique_ptr:doubleA:"></span><span class="target" id="classrecipe_1_1linear__algebra_1_1Matrix_1a942046a62699be7c6c597afa2115fbaa"></span>std::unique_ptr&lt;double[]&gt; <code class="descname">data_</code><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra6Matrix5data_E" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Row majored data. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra10MakeMatrixENSt16initializer_listINSt16initializer_listIdEEEE">
+<span id="_CPPv2N6recipe14linear_algebra10MakeMatrixENSt16initializer_listINSt16initializer_listIdEEEE"></span><span id="recipe::linear_algebra::MakeMatrix__std::initializer_list:std::initializer_list:double::"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1ad11fd69c287af3c30602620b556cfb6b"></span><a class="reference internal" href="#_CPPv3N6recipe14linear_algebra6MatrixE" title="recipe::linear_algebra::Matrix">Matrix</a> <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">MakeMatrix</code><span class="sig-paren">(</span>std::initializer_list&lt;std::initializer_list&lt;double&gt;&gt; <em>list</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra10MakeMatrixENSt16initializer_listINSt16initializer_listIdEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Create matrix from initalizer_list. </p>
+<p>Example:</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span> <span class="n">mat</span> <span class="o">=</span> <span class="n">MakeMatrix</span><span class="p">({</span>
+  <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span>
+  <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">},</span>
+  <span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">},</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd></dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">list</span></code>: </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra18MakeIdentityMatrixEKi">
+<span id="_CPPv2N6recipe14linear_algebra18MakeIdentityMatrixEKi"></span><span id="recipe::linear_algebra::MakeIdentityMatrix__iC"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1a4648f9877dd287a3a55b771e6f7fc6da"></span><a class="reference internal" href="#_CPPv3N6recipe14linear_algebra6MatrixE" title="recipe::linear_algebra::Matrix">Matrix</a> <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">MakeIdentityMatrix</code><span class="sig-paren">(</span><em class="property">const</em> int <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra18MakeIdentityMatrixEKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>(size x size) squared matrix </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">size</span></code>: row or column size</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="householder-transformation">
+<h2>Householder Transformation<a class="headerlink" href="#householder-transformation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra24ComputeHouseholderVectorEPKdKiPdPd">
+<span id="_CPPv2N6recipe14linear_algebra24ComputeHouseholderVectorEPKdKiPdPd"></span><span id="recipe::linear_algebra::ComputeHouseholderVector__doubleCP.iC.doubleP.doubleP"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1aad44657fb792f2e6d08ecd8b21f8d6b4"></span>void <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">ComputeHouseholderVector</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>vec_x</em>, <em class="property">const</em> int <em>size_vec</em>, double *<em>householder_vec</em>, double *<em>householder_coeff</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Compute Householder Vector of vec_x. Calcualte $v$ and $\beta$ which satisfy. </p>
+<p>$$ (I - \beta vv^{{T}})x = \|x\|_{2} e_{1} $$</p>
+<p>where $(e_{i})$ is a standard basis of euclid space and $v = (1, v^{2}, \ldots, v^{2})$.</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">vec_x</span></code>: vector $x$. </li>
+<li><code class="docutils literal notranslate"><span class="pre">size_vec</span></code>: size of vector $x$ and $v$. </li>
+<li><code class="docutils literal notranslate"><span class="pre">householder_vec</span></code>: Householder vector $v$. </li>
+<li><code class="docutils literal notranslate"><span class="pre">householder_coeff</span></code>: Householder coefficient $\beta$. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra24ComputeHouseholderMatrixEPKdKdKi">
+<span id="_CPPv2N6recipe14linear_algebra24ComputeHouseholderMatrixEPKdKdKi"></span><span id="recipe::linear_algebra::ComputeHouseholderMatrix__doubleCP.doubleC.iC"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1a9f655c3f2c8604b94161f0cec2aeb899"></span>std::unique_ptr&lt;double[]&gt; <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">ComputeHouseholderMatrix</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>householder_vec</em>, <em class="property">const</em> double <em>householder_coeff</em>, <em class="property">const</em> int <em>size</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Compute Householder matrix. </p>
+<p>$$ (I - \beta vv^{\mathrm{T}}) $$</p>
+<p>where $\beta := 2 / \|v\|_{2}^{2}$ and $v$ is a householder vectror.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>array of matrix $M$ whose values are stored in row majored order. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">householder_vec</span></code>: Householder vector $v$ </li>
+<li><code class="docutils literal notranslate"><span class="pre">householder_coeff</span></code>: coefficient of Householder transformation $\beta$. </li>
+<li><code class="docutils literal notranslate"><span class="pre">size</span></code>: the size of vector $v$.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra35ComputeHouseholderBidiagonalizationEPdKiKi">
+<span id="_CPPv2N6recipe14linear_algebra35ComputeHouseholderBidiagonalizationEPdKiKi"></span><span id="recipe::linear_algebra::ComputeHouseholderBidiagonalization__doubleP.iC.iC"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1aa9bc45a812110fbb3fdfc24f0125d7b2"></span>void <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">ComputeHouseholderBidiagonalization</code><span class="sig-paren">(</span>double *<em>mat_a</em>, <em class="property">const</em> int <em>row_size</em>, <em class="property">const</em> int <em>col_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra35ComputeHouseholderBidiagonalizationEPdKiKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">mat_a</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">row_size</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">col_size</span></code>: </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="qr-decompositions">
+<h2>QR decompositions<a class="headerlink" href="#qr-decompositions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra20ComputeHouseholderQREPdKiKi">
+<span id="_CPPv2N6recipe14linear_algebra20ComputeHouseholderQREPdKiKi"></span><span id="recipe::linear_algebra::ComputeHouseholderQR__doubleP.iC.iC"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1a3a407eab6ceea3b727759ca9db490708"></span>std::unique_ptr&lt;double[]&gt; <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">ComputeHouseholderQR</code><span class="sig-paren">(</span>double *<em>mat_a</em>, <em class="property">const</em> int <em>row_size</em>, <em class="property">const</em> int <em>col_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra20ComputeHouseholderQREPdKiKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute Householder QR decomposition. <a class="reference internal" href="#classrecipe_1_1linear__algebra_1_1Matrix"><span class="std std-ref">Matrix</span></a> $A$ is overwritten by the algorithm. If you need matrix $Q$ and $R$, use <a class="reference internal" href="#namespacerecipe_1_1linear__algebra_1aba8e9291850890336f60c36d6e75d575"><span class="std std-ref">ConvertHouseholderQRToQ</span></a>( const double*, const double*, const int, const int) “ConvertHouseholderQRToQ” and <a class="reference internal" href="#namespacerecipe_1_1linear__algebra_1a1bceb62308437395c341e54601546fcc"><span class="std std-ref">ConvertHouseholderQRToR</span></a>( const double*, const double*, const int, const int) “ConvertHouseholderQRToR”. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>A lit of Householder vectors used to compute $Q$. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">mat_a</span></code>: matrix $A$. $A$ is overwritten. </li>
+<li><code class="docutils literal notranslate"><span class="pre">row_size</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">col_size</span></code>: </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra23ConvertHouseholderQRToQEPKdPKdKiKi">
+<span id="_CPPv2N6recipe14linear_algebra23ConvertHouseholderQRToQEPKdPKdKiKi"></span><span id="recipe::linear_algebra::ConvertHouseholderQRToQ__doubleCP.doubleCP.iC.iC"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1aba8e9291850890336f60c36d6e75d575"></span>std::unique_ptr&lt;double[]&gt; <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">ConvertHouseholderQRToQ</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>mat_qr</em>, <em class="property">const</em> double *<em>householder_coeffs</em>, <em class="property">const</em> int <em>row_size</em>, <em class="property">const</em> int <em>col_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra23ConvertHouseholderQRToQEPKdPKdKiKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract a orthonomal $Q$ and a upper triangular matrix $R$ from the resutl of <a class="reference internal" href="#namespacerecipe_1_1linear__algebra_1a3a407eab6ceea3b727759ca9db490708"><span class="std std-ref">ComputeHouseholderQR</span></a>. TODO: Currently, the function support <code class="docutils literal notranslate"><span class="pre">row_size</span> <span class="pre">&gt;=</span> <span class="pre">col_size</span></code>. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd></dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">mat_qr</span></code>: the results of decomposing function. See <code class="docutils literal notranslate"><span class="pre">ComputeHouseholderQR</span></code>. </li>
+<li><code class="docutils literal notranslate"><span class="pre">householder_coeffs</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">row_size</span></code>: num of rows of <code class="docutils literal notranslate"><span class="pre">mat_qr</span></code>. </li>
+<li><code class="docutils literal notranslate"><span class="pre">col_size</span></code>: num of rows of <code class="docutils literal notranslate"><span class="pre">mat_qr</span></code>.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra23ConvertHouseholderQRToREPKdPKdKiKi">
+<span id="_CPPv2N6recipe14linear_algebra23ConvertHouseholderQRToREPKdPKdKiKi"></span><span id="recipe::linear_algebra::ConvertHouseholderQRToR__doubleCP.doubleCP.iC.iC"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1a1bceb62308437395c341e54601546fcc"></span>std::unique_ptr&lt;double[]&gt; <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">ConvertHouseholderQRToR</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>mat_qr</em>, <em class="property">const</em> double *<em>householder_coeffs</em>, <em class="property">const</em> int <em>row_size</em>, <em class="property">const</em> int <em>col_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra23ConvertHouseholderQRToREPKdPKdKiKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra24ConvertHouseholderQRToQREPKdPKdKiKi">
+<span id="_CPPv2N6recipe14linear_algebra24ConvertHouseholderQRToQREPKdPKdKiKi"></span><span id="recipe::linear_algebra::ConvertHouseholderQRToQR__doubleCP.doubleCP.iC.iC"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1a2f6314ba7e51705972e7a363d936b2e4"></span>std::pair&lt;std::unique_ptr&lt;double[]&gt;, std::unique_ptr&lt;double[]&gt;&gt; <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">ConvertHouseholderQRToQR</code><span class="sig-paren">(</span><em class="property">const</em> double *<em>mat_qr</em>, <em class="property">const</em> double *<em>householder_coeffs</em>, <em class="property">const</em> int <em>row_size</em>, <em class="property">const</em> int <em>col_size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra24ConvertHouseholderQRToQREPKdPKdKiKi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Extract a orthonomal $Q$ and a upper triangular matrix $R$ from the resutl of <a class="reference internal" href="#namespacerecipe_1_1linear__algebra_1a3a407eab6ceea3b727759ca9db490708"><span class="std std-ref">ComputeHouseholderQR</span></a>. TODO: Currently, the function support <code class="docutils literal notranslate"><span class="pre">row_size</span> <span class="pre">&gt;=</span> <span class="pre">col_size</span></code>. </p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>the first of the pair is $Q$. the second is <code class="docutils literal notranslate"><span class="pre">R</span></code>. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">mat_qr</span></code>: the results of decomposing function. See <code class="docutils literal notranslate"><span class="pre">ComputeHouseholderQR</span></code>. </li>
+<li><code class="docutils literal notranslate"><span class="pre">householder_coeffs</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">row_size</span></code>: num of rows of <code class="docutils literal notranslate"><span class="pre">mat_qr</span></code>. </li>
+<li><code class="docutils literal notranslate"><span class="pre">col_size</span></code>: num of rows of <code class="docutils literal notranslate"><span class="pre">mat_qr</span></code>.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="gievns-rotation">
+<h2>Gievns Rotation<a class="headerlink" href="#gievns-rotation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra31ComputeGivensRotationParametersEKdKd">
+<span id="_CPPv2N6recipe14linear_algebra31ComputeGivensRotationParametersEKdKd"></span><span id="recipe::linear_algebra::ComputeGivensRotationParameters__doubleC.doubleC"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1a0857bab9895b8e4a1fd5b5c8c8d2f88d"></span>std::pair&lt;double, double&gt; <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">ComputeGivensRotationParameters</code><span class="sig-paren">(</span><em class="property">const</em> double <em>val1</em>, <em class="property">const</em> double <em>val2</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv3N6recipe14linear_algebra31ComputeGivensRotationParametersEKdKd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute $c$ and $s$ which satisfy. </p>
+<p>$$ \left( \begin{array}{cc} c &amp; s \\ -s &amp; c \end{array} \right)^{\mathrm{T}} \left( \begin{array}{c} a \\ b \end{array} \right) = \left( \begin{array}{c} r \\ 0 \end{array} \right) $$</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>values $c$ and $s$. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">val1</span></code>: value $a$ </li>
+<li><code class="docutils literal notranslate"><span class="pre">val2</span></code>: value $b$</li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra22MultiplyGivensRotationEKiKiRKNSt4pairIddEEPdKiKi">
+<span id="_CPPv2N6recipe14linear_algebra22MultiplyGivensRotationEKiKiRKNSt4pairIddEEPdKiKi"></span><span id="recipe::linear_algebra::MultiplyGivensRotation__iC.iC.std::pair:double.double:CR.doubleP.iC.iC"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1a25eaa4cd9fd3750dd825d6d6a8f3ed9e"></span>void <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">MultiplyGivensRotation</code><span class="sig-paren">(</span><em class="property">const</em> int <em>givens_index1</em>, <em class="property">const</em> int <em>givens_index2</em>, <em class="property">const</em> std::pair&lt;double, double&gt; &amp;<em>givens_params</em>, double *<em>mat_a</em>, <em class="property">const</em> int <em>row_size</em>, <em class="property">const</em> int <em>col_size</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Multiply Givens rotations from left to $A$. Compute $G(i, j, c, s)^{\mathrm{T}}A$. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">givens_index1</span></code>: Givens rotation position $i$. </li>
+<li><code class="docutils literal notranslate"><span class="pre">givens_index2</span></code>: Givens rotation position $j$. Must be $i &lt; j$. </li>
+<li><code class="docutils literal notranslate"><span class="pre">givens_params</span></code>: Givens rotation parameter $(c, s)$. </li>
+<li><code class="docutils literal notranslate"><span class="pre">mat_a</span></code>: matrix $A$. Overwritten by $G(i, j, c, s)A$. </li>
+<li><code class="docutils literal notranslate"><span class="pre">row_size</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">col_size</span></code>: </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv3N6recipe14linear_algebra22MultiplyGivensRotationEPdKiKiKiKiRKNSt4pairIddEE">
+<span id="_CPPv2N6recipe14linear_algebra22MultiplyGivensRotationEPdKiKiKiKiRKNSt4pairIddEE"></span><span id="recipe::linear_algebra::MultiplyGivensRotation__doubleP.iC.iC.iC.iC.std::pair:double.double:CR"></span><span class="target" id="namespacerecipe_1_1linear__algebra_1ac60d79cb5fc6bd984c6ef877f1b4c0a7"></span>void <code class="descclassname">recipe::linear_algebra<code class="descclassname">::</code></code><code class="descname">MultiplyGivensRotation</code><span class="sig-paren">(</span>double *<em>mat_a</em>, <em class="property">const</em> int <em>row_size</em>, <em class="property">const</em> int <em>col_size</em>, <em class="property">const</em> int <em>givens_index1</em>, <em class="property">const</em> int <em>givens_index2</em>, <em class="property">const</em> std::pair&lt;double, double&gt; &amp;<em>givens_params</em><span class="sig-paren">)</span><br /></dt>
+<dd><p>Multiply Givens rotations from right to $A$. Compute $AG(i, j, c, s)$. </p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">mat_a</span></code>: matrix $A$. Overwritten by $AG(i, j, c, s)$. </li>
+<li><code class="docutils literal notranslate"><span class="pre">row_size</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">col_size</span></code>: </li>
+<li><code class="docutils literal notranslate"><span class="pre">givens_index1</span></code>: Givens rotation position $i$. </li>
+<li><code class="docutils literal notranslate"><span class="pre">givens_index2</span></code>: Givens rotation position $j$. Must be $i &lt; j$. </li>
+<li><code class="docutils literal notranslate"><span class="pre">givens_params</span></code>: Givens rotation parameter $(c, s)$. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="test_util.html" class="btn btn-neutral float-right" title="Test Util" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="algorithms.html" class="btn btn-neutral float-left" title="Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, i05nagai
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
